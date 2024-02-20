@@ -26,6 +26,7 @@ echo "<tr>
 <th>Contact Number</th>
 <th>Salary</th>
 <th>Active</th>
+<th>Action</th>
 </tr>";
 while ($row = $result->fetch_assoc()) {
     echo "<tr>
