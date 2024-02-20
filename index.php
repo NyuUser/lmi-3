@@ -28,7 +28,11 @@
         <label>civilstat: </label><input id="civilstat" type="text" name="civilstat" required><br>
         <label>contactnum: </label><input id="contactnum" type="text" name="contactnum" required><br>
         <label>salary: </label><input id="salary" type="text" name="salary" required><br>
-        <label>isactive: </label><input id="isactive" type="text" name="isactive" required><br>
+        <p>isactive:</p>
+        <input type="radio" id="isactive" name="isactive" value="1">
+        <label for="isactive">YES</label><br>
+        <input type="radio" id="isactive" name="isactive" value="0">
+        <label for="isactive">NO</label><br>
         <input name="add" value="Add" onclick="addEmp()">
     </form>
 
@@ -44,7 +48,11 @@
             <label>civilstat: </label><input id="editcivilstat" type="text" name="civilstat" required><br>
             <label>contactnum: </label><input id="editcontactnum" type="text" name="contactnum" required><br>
             <label>salary: </label><input id="editsalary" type="text" name="salary" required><br>
-            <label>isactive: </label><input id="editisactive" type="text" name="isactive" required><br>
+            <p>isactive:</p>
+            <input type="radio" id="editisactive" name="isactive" value="1">
+            <label for="editisactive">YES</label><br>
+            <input type="radio" id="editisactive" name="isactive" value="0">
+            <label for="editisactive">NO</label><br>
             <input name="update" value="Update" onclick="updateEmp()">
             <button type="button" onclick="closePopup()">Cancel</button>
         </form>

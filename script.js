@@ -40,9 +40,11 @@ function editCharacter(recid, fullname, address, birthdate, age, gender, civilst
 }
 
 function updateEmp() {
+    thisone = $("#editisactive").val()
     var formData = $("#editForm").serialize();
     $.post("empprocess.php", formData, function (data, status) {
         // Refresh the character list after adding
+        console.log(formData, thisone)
         alert("Data: " + data + "\nStatus: " + status);
         loadEmpList();
         closePopup();

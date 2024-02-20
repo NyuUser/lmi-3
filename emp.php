@@ -29,6 +29,12 @@ echo "<tr>
 <th>Action</th>
 </tr>";
 while ($row = $result->fetch_assoc()) {
+    $boolVal = '';
+    if ($row["isactive"] == 1) {
+        $boolVal = 'Yes';
+    } else {
+        $boolVal = 'No';
+    }
     echo "<tr>
     <td>{$row["recid"]}</td>
     <td>{$row["fullname"]}</td>
@@ -39,7 +45,7 @@ while ($row = $result->fetch_assoc()) {
     <td>{$row["civilstat"]}</td>
     <td>{$row["contactnum"]}</td>
     <td>{$row["salary"]}</td>
-    <td>{$row["isactive"]}</td>
+    <td>{$boolVal}</td>
     <td>
     <button onclick=\"editCharacter(
         {$row['recid']}, 
