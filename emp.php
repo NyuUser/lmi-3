@@ -46,7 +46,7 @@ while ($row = $result->fetch_assoc()) {
     <td>{$row["contactnum"]}</td>
     <td>{$row["salary"]}</td>
     <td>{$boolVal}</td>
-    <td>
+    <td class='action-buttons'>
     <button onclick=\"editCharacter(
         {$row['recid']}, 
         '{$row['fullname']}', 

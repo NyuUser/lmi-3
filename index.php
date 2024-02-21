@@ -20,40 +20,127 @@
     <script src="script.js?v=<?php echo time(); ?>"></script>
     <form id="addForm">
         <h3>Add an Employee</h3>
-        <label>fullname: </label><input id="fullname" type="text" name="fullname" required><br>
-        <label>address: </label><input id="address" type="text" name="address" required><br>
-        <label>birthdate: </label><input id="birthdate" type="date" name="birthdate" required><br>
-        <label>age: </label><input id="age" type="text" name="age" required><br>
-        <label>gender: </label><input id="gender" type="text" name="gender" required><br>
-        <label>civilstat: </label><input id="civilstat" type="text" name="civilstat" required><br>
-        <label>contactnum: </label><input id="contactnum" type="text" name="contactnum" required><br>
-        <label>salary: </label><input id="salary" type="text" name="salary" required><br>
-        <p>isactive:</p>
-        <input type="radio" id="isactive" name="isactive" value="1">
-        <label for="isactive">YES</label><br>
-        <input type="radio" id="isactive" name="isactive" value="0">
-        <label for="isactive">NO</label><br>
-        <input name="add" value="Add" onclick="addEmp()">
+        <label>Employee Full Name: </label><input id="fullname" type="text" name="fullname" required><br>
+        
+        <label>Address: </label><input id="address" type="text" name="address" required><br>
+        
+        <label>Birth Date: </label><input id="birthdate" type="date" name="birthdate" required><br>
+        
+        <label>Age: </label><input id="age" type="number" name="age" onkeydown="return event.keyCode !== 69" required><br>
+
+        <label>Gender: </label><br>
+        <div class="radio-group" id="gender">
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label>
+        </div>
+        <br>
+        <br>
+
+        <label>Civil Status: </label><br>
+        <div class="radio-group" id="civilstat">
+            <input type="radio" id="single" name="civilstat" value="Single" required>
+            <label for="single">Single</label>
+            <input type="radio" id="married" name="civilstat" value="Married">
+            <label for="married">Married</label>
+            <br>
+            <br>
+            <input type="radio" id="separated" name="civilstat" value="Separated">
+            <label for="separated">Separated</label>
+            <input type="radio" id="widowed" name="civilstat" value="Widowed">
+            <label for="widowed">Widowed</label>
+        </div>
+        <br>
+        <br>
+        
+        <label>Contact Number: </label><input id="contactnum" type="tel" name="contactnum" pattern="[0-9]{10,}" title="Please enter a valid 10-digit phone number" required><br>
+        
+        <label>Salary: </label><input id="salary" type="number" name="salary" min="0" step="0.01" required><br>
+
+        <!--p>Active:</p>
+        <div class="radio-group">
+            <input type="radio" id="isactive" name="isactive" value="1" checked required>
+            <label for="isactive">Yes</label>
+            <input type="radio" id="isactive" name="isactive" value="0">
+            <label for="isactive">No</label>
+        </div-->
+
+        <label>
+            Is Active: <input type="checkbox" name="isactive" id="isactive" checked required value="1"> 
+        </label>
+
+        <br>
+        <br>
+
+        <input class="form-button" name="add" value="Add" onclick="addEmp()">
     </form>
 
+    <br>
+    <br>
+
     <div class="popup" id="editPopup">
-        <h3>Edit a Character</h3>
+        <h3>Edit a Employee Details</h3>
         <form id="editForm">
-            <label>recid: </label><input id="editrecid" type="text" name="recid" hidden><br>
-            <label>fullname: </label><input id="editfullname" type="text" name="fullname" required><br>
-            <label>address: </label><input id="editaddress" type="text" name="address" required><br>
-            <label>birthdate: </label><input id="editbirthdate" type="date" name="birthdate" required><br>
-            <label>age: </label><input id="editage" type="text" name="age" required><br>
-            <label>gender: </label><input id="editgender" type="text" name="gender" required><br>
-            <label>civilstat: </label><input id="editcivilstat" type="text" name="civilstat" required><br>
-            <label>contactnum: </label><input id="editcontactnum" type="text" name="contactnum" required><br>
-            <label>salary: </label><input id="editsalary" type="text" name="salary" required><br>
-            <p>isactive:</p>
-            <input type="radio" id="editisactive" name="isactive" value="1">
-            <label for="editisactive">YES</label><br>
-            <input type="radio" id="editisactive" name="isactive" value="0">
-            <label for="editisactive">NO</label><br>
-            <input name="update" value="Update" onclick="updateEmp()">
+            <input id="editrecid" type="text" name="recid" hidden><br>
+            
+            <label>Employee Full Name: </label><input id="editfullname" type="text" name="fullname" required><br>
+            
+            <label>Address: </label><input id="editaddress" type="text" name="address" required><br>
+            
+            <label>Birth Date: </label><input id="editbirthdate" type="date" name="birthdate" required><br>
+            
+            <label>Age: </label><input id="editage" type="number" name="age" onkeydown="return event.keyCode !== 69" required><br>
+            
+            <label>Gender: </label><br>
+            <div class="radio-group" id="editgender">
+                <input type="radio" id="male" name="gender" value="Male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="Other">
+                <label for="other">Other</label>
+            </div>
+            <br>
+            <br>
+            
+            <label>Civil Status: </label><br>
+            <div class="radio-group" id="editcivilstat">
+                <input type="radio" id="single" name="civilstat" value="Single" required>
+                <label for="single">Single</label>
+                <input type="radio" id="married" name="civilstat" value="Married">
+                <label for="married">Married</label>
+                <br>
+                <br>
+                <input type="radio" id="separated" name="civilstat" value="Separated">
+                <label for="separated">Separated</label>
+                <input type="radio" id="widowed" name="civilstat" value="Widowed">
+                <label for="widowed">Widowed</label>
+            </div>
+            <br>
+            <br>
+            
+            <label>Contact Number: </label><input id="editcontactnum" type="tel" name="contactnum" pattern="[0-9]{10,}" title="Please enter a valid 10-digit phone number" required><br>
+            
+            <label>Salary: </label><input id="editsalary" type="number" name="salary" min="0" step="0.01" required><br>
+            
+            <!--p>Active:</p>
+            <div class="radio-group" id="editisactive">
+                <input type="radio" id="editisactive" name="isactive" value="1" required>
+                <label for="isactive">Yes</label>
+                <input type="radio" id="editisactive" name="isactive" value="0">
+                <label for="isactive">No</label>
+            </div-->
+
+            <label>
+                Is Active: <input type="checkbox" name="isactive" id="editisactive" required value="1"> 
+            </label>
+            
+            <br>
+            <br>
+            <input class="form-button" name="update" value="Update" onclick="updateEmp()">
             <button type="button" onclick="closePopup()">Cancel</button>
         </form>
     </div>

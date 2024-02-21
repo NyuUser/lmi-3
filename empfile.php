@@ -14,13 +14,13 @@ $sql = "CREATE TABLE IF NOT EXISTS employeefile (
     recid INT AUTO_INCREMENT PRIMARY KEY,
     fullname VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    birthdate VARCHAR(255) NOT NULL,
-    age VARCHAR(255) NOT NULL,
-    gender VARCHAR(255) NOT NULL,
-    civilstat VARCHAR(255) NOT NULL,
-    contactnum VARCHAR(255) NOT NULL,
-    salary VARCHAR(255) NOT NULL,
-    isactive VARCHAR(255) NOT NULL
+    birthdate DATE NOT NULL,
+    age INT NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    civilstat VARCHAR(20) NOT NULL,
+    contactnum VARCHAR(15) NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
+    isactive INT NOT NULL
 )";
 $conn->query($sql);
 
