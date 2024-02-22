@@ -36,7 +36,7 @@ if (!isset($_SESSION['username'])) {
         
         <label>Address: </label><input id="address" type="text" name="address" required><br>
         
-        <label>Birth Date: </label><input id="birthdate" type="date" name="birthdate" required><br>
+        <label>Birth Date: </label><input id="birthdate" type="text" name="birthdate" required><br>
         
         <label>Age: </label><input id="age" type="number" name="age" onkeydown="return event.keyCode !== 69" required><br>
 

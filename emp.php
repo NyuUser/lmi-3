@@ -19,7 +19,7 @@ echo "<tr>
 <th>Record ID</td>
 <th>FullName</th>
 <th>Address</th>
-<th>Birth Date (yyyy-mm-dd)</th>
+<th>Birth Date</th>
 <th>Age</th>
 <th>Gender</th>
 <th>Civil Status</th>
@@ -35,16 +35,24 @@ while ($row = $result->fetch_assoc()) {
     } else {
         $boolVal = 'No';
     }
+
+    $dateString = $row["birthdate"]; //date in YYYY-MM-DD format
+    $readableDate = date('F j, Y', strtotime($dateString)); // Convert to readable format
+
+    $salary = $row["salary"]; // Example salary
+    
+    // Format salary with comma as thousands separator and Philippine peso symbol
+    $formattedSalary = '₱' . number_format($salary, 2);
     echo "<tr>
     <td>{$row["recid"]}</td>
     <td>{$row["fullname"]}</td>
     <td>{$row["address"]}</td>
-    <td>{$row["birthdate"]}</td>
+    <td>{$readableDate}</td>
     <td>{$row["age"]}</td>
     <td>{$row["gender"]}</td>
     <td>{$row["civilstat"]}</td>
     <td>{$row["contactnum"]}</td>
-    <td>{$row["salary"]}</td>
+    <td>{$formattedSalary}</td>
     <td>{$boolVal}</td>
     <td class='action-buttons'>
     <button onclick=\"editCharacter(

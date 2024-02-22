@@ -1,0 +1,20 @@
+<?php
+$xhost = 'localhost';
+$xuname = 'root';
+$xpw = 'sql';
+$xdbname = 'employeedb';
+$xcnstr = 'mysql:host=$xhost; dbname=$xdbname;charset=utf8';
+$xopt = array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY=>true,PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'");
+
+try
+{
+$link_id = new PDO($xcnstr, $xuname, $xpw, $xopt);
+echo "<br/><br/><br/><center><b style=\"font-size: 30px;\">Connected!</b></center>";
+}
+
+catch ( Exception $e)
+{
+echo "<br/><br/><br/><center><b style=\"font-size: 30px;\">No connection!</b></center> $e";
+die();
+}
+?>

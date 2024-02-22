@@ -23,6 +23,11 @@ $sql = "INSERT INTO user (username, password) VALUES ('$uname', '$pword')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Added successfully";
+    echo "<a href=\"login.html\">
+    <p>
+        Click here to go back to Login Page
+    </p>
+</a>";
 } else {
     echo "'$uname', '$pword'";
     echo "Error: " . $sql . "<br>" . $conn->error;

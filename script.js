@@ -86,6 +86,11 @@ function loadEmpList() {
 }
 
 function editCharacter(recid, fullname, address, birthdate, age, gender, civilstat, contactnum, salary, isactive) {
+
+  $("#editbirthdate").change(function () {
+    console.log('check this one out', $( "#birthdate" ).val())
+  });
+  
   console.log(fullname, address, birthdate, age, gender, civilstat, contactnum, salary, isactive);
   $('#editrecid').val(recid);
   $('#editfullname').val(fullname);
@@ -149,4 +154,20 @@ function closePopup() {
 
 $(document).ready(function () {
     loadEmpList();
+    $("#birthdate").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'yy-mm-dd'
+    });
+
+    // birthdate
+    // editbirthdate
+    
+    $("#birthdate").change(function () {
+      console.log('check this one out', $( "#birthdate" ).val())
+    });
+
+    $("#editbirthdate").change(function () {
+      console.log('check this one out', $( "#birthdate" ).val())
+    });
 })
