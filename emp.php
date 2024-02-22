@@ -19,7 +19,7 @@ echo "<tr>
 <th>Record ID</td>
 <th>FullName</th>
 <th>Address</th>
-<th>Birth Date</th>
+<th>Birth Date (yyyy-mm-dd)</th>
 <th>Age</th>
 <th>Gender</th>
 <th>Civil Status</th>

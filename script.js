@@ -30,9 +30,9 @@ function addEmp() {
   $('input[name=gender]:checked').val(''),
   $('input[name=civilstat]:checked').val(''),
   $('#contactnum').val(''),
-  $('#salary').val(''),
+  $('#salary').val('')
   // $('input[name=isactive]:checked').val('')
-  $('input[name="isactive"]').is(':checked')
+  // $('input[name="isactive"]').is(':checked')
   }
   console.log(
     'console.log',
@@ -45,7 +45,7 @@ function addEmp() {
     $('#contactnum').val(),
     $('#salary').val(),
     // $('input[name=isactive]:checked').val(),
-    $('input[name="isactive"]').is(':checked')
+    // $('input[name="isactive"]').is(':checked')
   )
 }
 
@@ -105,15 +105,23 @@ function editCharacter(recid, fullname, address, birthdate, age, gender, civilst
   // Check isactive radio button
   // $('input[name=isactive]').filter(`[value=${isactive}]`).prop('checked', true);
 
+  if (isactive === "1") {
+    $('#editisactive').prop('checked', true);
+  } else {
+    $('#editisactive').prop('checked', false);
+  }
+
   $("#editPopup").show();
 }
 
 function updateEmp() {
     thisone = $("#editisactive").val()
     var formData = $("#editForm").serialize();
+    
     $.post("empprocess.php", formData, function (data, status) {
         // Refresh the character list after adding
-        console.log(formData, thisone)
+        console.log(formData)
+        console.log('thisone', thisone)
         alert("Data: " + data + "\nStatus: " + status);
         loadEmpList();
         closePopup();

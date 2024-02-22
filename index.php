@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
+
 <html>
 
 <head>
@@ -17,6 +25,10 @@
 </head>
 
 <body>
+    <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
+    <ul>
+        <li><a href="menu.php">Back to Menu</a></li>
+    </ul>
     <script src="script.js?v=<?php echo time(); ?>"></script>
     <form id="addForm">
         <h3>Add an Employee</h3>
@@ -135,7 +147,7 @@
             </div-->
 
             <label>
-                Is Active: <input type="checkbox" name="isactive" id="editisactive" required value="1"> 
+                Is Active: <input type="checkbox" name="isactive" id="editisactive" value="1"> 
             </label>
             
             <br>

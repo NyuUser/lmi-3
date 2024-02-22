@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <form id="loginForm" action="login.php" method="post">
+        <h2>Login</h2>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <br>
+
+        <a href="register.html">
+            <p>
+                Not yet registered? Click here!
+            </p>
+        </a>
+
+        <div>
+            <input class="form-button" type="submit" value="Login">
+        </div>
+    </form>
+    <div id="loginMessage"></div>
+</body>
+</html>

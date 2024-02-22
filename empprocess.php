@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $civilstat = $_POST["civilstat"];
         $contactnum = $_POST["contactnum"];
         $salary = $_POST["salary"];
-        $isactive = $_POST["isactive"];
+        $isactive = isset($_POST["isactive"]) ? $_POST["isactive"] : 0;
 
         $sql = "UPDATE employeefile 
         SET fullname='$fullname', 

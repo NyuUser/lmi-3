@@ -11,6 +11,7 @@ label {
     margin-bottom: 5px;
 }
 input[type="text"],
+input[type="password"],
 input[type="date"],
 input[type="number"],
 input[type="tel"] {
@@ -82,4 +83,32 @@ th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+/* Reset default list styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the list items */
+ul li {
+    display: inline; /* Display list items horizontally */
+    margin-right: 10px; /* Add some spacing between list items */
+}
+
+/* Style for the links */
+ul li a {
+    text-decoration: none; /* Remove underline from links */
+    padding: 5px 10px; /* Add padding to links */
+    border: 1px solid #ccc; /* Add border to links */
+    border-radius: 5px; /* Add rounded corners to links */
+    background-color: #f0f0f0; /* Add background color to links */
+    color: #333; /* Set text color */
+}
+
+/* Style for the links on hover */
+ul li a:hover {
+    background-color: #ddd; /* Change background color on hover */
 }
