@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
 <body>
     <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
     <ul>
-        <li><a href="menu.php">Back to Menu</a></li>
+        <li><a href="menu.php">Back to Main Menu</a></li>
         <li><a href="playground/index.php">Existing Users</a></li>
     </ul>
     <script src="script.js?v=<?php echo time(); ?>"></script>

@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
         <h3>Menu</h3>
         <ul>
             <li><a href="index.php">CRUD</a></li>
-            <li><a href="playground/index.php">Existing Users</a></li>
+            <li><a href="playground/index.php">Dialog</a></li>
         </ul>
         <br>
         <br>

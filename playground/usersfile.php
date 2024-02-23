@@ -33,17 +33,23 @@ $result1 = $conn->query($sql1);
 echo "<tr class=\"ui-widget-header\">
     <th>Rec ID</th>
     <th>Username</th>
-    <th>email</th>
+    <th>Email</th>
     <th>Password</th>
     </tr>";
     while ($row = $result->fetch_assoc()) {
+        // Password to be encoded
+        $password = $row["password"];
+        
+        // Hash the password using bcrypt
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         echo "<tr>
         <td>{$row["recid"]}</td>
         <td>{$row["username"]}</td>
         <td>{$row["email"]}</td>
-        <td>{$row["password"]}</td>
+        <td>$hashedPassword</td>
         </tr>";
     }
-
-// Close the database connection
-$conn->close();
+    
+    // Close the database connection
+    $conn->close();
+    

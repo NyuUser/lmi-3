@@ -63,6 +63,7 @@ $( function() {
       dialog.dialog( "close" );
     }
     loadUserList();
+    updateAutocomplete();
     return valid;
   }
   // add user
@@ -95,6 +96,7 @@ $( function() {
     dialog.dialog( "open" );
   });
   // open dialog
+
 } );
 
 function loadUserList() {
@@ -103,6 +105,56 @@ function loadUserList() {
     });
 }
 
+function searchByName() {
+  var searchName = $("#tags").val()
+  console.log("searchName", searchName)
+  $.ajax({
+    type: "POST",
+    url: "nameSearch.php",
+    data: { thisName: searchName },
+    success: function (response) {
+      $("#usersTable").html(response);
+    },
+    error: function (error) {
+      $("#usersTable").html("Error executing the query.");
+      console.log(error);
+    },
+  });
+}
+
+function updateAutocomplete() {
+    var availableTags = []
+    
+    $.ajax({
+      type: "POST",
+      url: "search_name_process.php",
+      data: {  },
+      success: function (response) {
+        console.log('reponse', response);
+        var nameAutoArray = JSON.parse(response);
+        console.log('Names:', nameAutoArray);
+        availableTags = nameAutoArray
+  
+        console.log(availableTags)
+        
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+      },
+      error: function (error) {
+        console.log("Error executing the query.");
+        console.log(error);
+      },
+    });
+}
+
 $(document).ready(function () {
+  $( function() {
+    $( "#tabs" ).tabs();
+    // $("#tabs-3").load("../index.php");
+  } );
+
+  updateAutocomplete();
+
   loadUserList();
 })
