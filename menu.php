@@ -14,11 +14,12 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <form action="logout.php" method="post">
+    <form action="logout.php" id="addForm" method="post">
         <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
         <h3>Menu</h3>
         <ul>
             <li><a href="index.php">CRUD</a></li>
+            <li><a href="playground/index.php">Existing Users</a></li>
         </ul>
         <br>
         <br>

@@ -80,9 +80,9 @@ function validateForm() {
 }
 
 function loadEmpList() {
-    $.get("emp.php", function (data) {
-        $("#empTable").html(data);
-    });
+  $.get("emp.php", function (data) {
+    $("#empTable").html(data);
+  });
 }
 
 function editCharacter(recid, fullname, address, birthdate, age, gender, civilstat, contactnum, salary, isactive) {

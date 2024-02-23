@@ -12,24 +12,21 @@ if ($conn->connect_error) {
 }
 
 $uname = isset($_POST["username"]) ? $_POST["username"] : "";
+$uemail = isset($_POST["uemail"]) ? $_POST["uemail"] : "";
 $pword = isset($_POST["password"]) ? $_POST["password"] : "";
 
 // INSERT INTO employeefile (fullname, address, birthdate, age, gender, civilstat, contactnum, salary, isactive) 
 // VALUES ('$fullname', '$address', '$birthdate', '$age', '$gender', '$civilstat', '$contactnum', '$salary', '$isactive')
 // INSERT INTO employeefile (username, password) VALUES ('$username', '$password')
 
-$sql = "INSERT INTO user (username, password) VALUES ('$uname', '$pword')";
+$sql = "INSERT INTO user (username, email, password) VALUES ('$uname', '$uemail', '$pword')";
 // $result = mysqli_query($conn, $sql);
 
 if ($conn->query($sql) === TRUE) {
-    echo "Added successfully";
-    echo "<a href=\"login.html\">
-    <p>
-        Click here to go back to Login Page
-    </p>
-</a>";
+    $_SESSION['username'] = $uname;
+    echo "<script>window.location.href='menu.php';</script>";
 } else {
-    echo "'$uname', '$pword'";
+    echo "'$uname', '$email', '$pword'";
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 

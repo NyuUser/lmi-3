@@ -28,6 +28,7 @@ if (!isset($_SESSION['username'])) {
     <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
     <ul>
         <li><a href="menu.php">Back to Menu</a></li>
+        <li><a href="playground/index.php">Existing Users</a></li>
     </ul>
     <script src="script.js?v=<?php echo time(); ?>"></script>
     <form id="addForm">
@@ -96,6 +97,7 @@ if (!isset($_SESSION['username'])) {
     <div class="popup" id="editPopup">
         <h3>Edit a Employee Details</h3>
         <form id="editForm">
+            <fieldset>
             <input id="editrecid" type="text" name="recid" hidden><br>
             
             <label>Employee Full Name: </label><input id="editfullname" type="text" name="fullname" required><br>
@@ -154,6 +156,7 @@ if (!isset($_SESSION['username'])) {
             <br>
             <input class="form-button" name="update" value="Update" onclick="updateEmp()">
             <button type="button" onclick="closePopup()">Cancel</button>
+            </fieldset>
         </form>
     </div>
 

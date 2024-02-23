@@ -12,9 +12,11 @@ if (!$conn) {
 }
 
 $username = $_POST['username'];
+$uemail = $_POST['uemail'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+$sql = "SELECT * FROM user WHERE username='$username' AND email='$uemail' AND password='$password'";
+// $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
