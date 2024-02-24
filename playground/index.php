@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Dialog - Modal form</title>
+  <title>jQuery UI Stuff</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <!--link rel="stylesheet" href="/resources/demos/style.css"-->
   <link rel="stylesheet" href="../style.css?v=<?php echo time(); ?>">
