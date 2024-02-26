@@ -58,6 +58,7 @@ $( function() {
         $.post("addNew.php", formData, function (data, status) {
           alert("Data: " + data + "\nStatus: " + status);
         })
+        window.location.href='menu.php';
       }
       return valid;
     }
@@ -67,7 +68,6 @@ $( function() {
     $('#newUser').on( "submit", function( event ) {
       event.preventDefault();
       addUser();
-      window.location.href='menu.php';
     });
     // form
   
