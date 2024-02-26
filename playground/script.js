@@ -114,13 +114,14 @@ function loadUserList() {
 
 function searchByName() {
   var searchName = $("#tags").val()
-  console.log("searchName", searchName, tempHolder)
+  if (searchName != "") {
+    console.log("searchName", searchName, tempHolder)
   $.ajax({
     type: "POST",
     url: "nameSearch.php",
     data: { 
       thisName: searchName, 
-      thisField: tempHolder 
+      //thisField: tempHolder 
     },
     success: function (response) {
       $("#usersTable").html(response);
@@ -130,6 +131,9 @@ function searchByName() {
       console.log(error);
     },
   });
+  } else {
+    alert('Field must not be empty');
+  }
 }
 
 var tempHolder = ""

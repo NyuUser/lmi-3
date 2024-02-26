@@ -48,9 +48,9 @@ if (!isset($_SESSION['username'])) {
     <div class="ui-widget">
       <label for="tags">Search by Name: </label>
       <input id="tags">
-      <label for="sortBy">Sort Ascending</label>
+      <!--label for="sortBy">Sort Ascending</label>
       <select id="sortBy" name="sort">
-      </select><br>
+      </select><br-->
       <input type="button" value="Submit" onclick="searchByName()">
     </div>
     
