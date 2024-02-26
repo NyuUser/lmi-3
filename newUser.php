@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="newUser.js"></script>
+    <script src="newUser.js?v=<?php echo time(); ?>"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
