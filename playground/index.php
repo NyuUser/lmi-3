@@ -80,6 +80,24 @@ if (!isset($_SESSION['username'])) {
       <button id="create-user">Create new user</button>
     </div>
   </div>
+
+  <div id="edit-form" title="Update User">
+      <p class="validateTips">All form fields are required.</p>
+      
+      <form id="editUser">
+        <fieldset>
+          <label for="editrecid">Record ID</label>
+          <input type="text" name="editrecid" id="editrecid" class="text ui-widget-content ui-corner-all">
+          <label for="editname">Name</label>
+          <input type="text" name="editname" id="editname" class="text ui-widget-content ui-corner-all">
+          <label for="editemail">Email</label>
+          <input type="text" name="editemail" id="editemail" class="text ui-widget-content ui-corner-all">
+          
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+      </form>
+    </div>
   
   </div>
   </html>

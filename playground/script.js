@@ -86,9 +86,33 @@ $( function() {
   });
   // dialog
 
+  editdialog = $( "#edit-form" ).dialog({
+    autoOpen: false,
+    height: 400,
+    width: 350,
+    modal: true,
+    buttons: {
+      "Update User Info": updateUser,
+      Cancel: function() {
+        editdialog.dialog( "close" );
+      }
+    },
+    close: function() {
+      editform[ 0 ].reset();
+      allFields.removeClass( "ui-state-error" );
+    }
+  });
+  // dialog
+
   form = dialog.find( "form" ).on( "submit", function( event ) {
     event.preventDefault();
     addUser();
+  });
+  // form
+
+  editform = editdialog.find( "form" ).on( "submit", function( event ) {
+    event.preventDefault();
+    updateUser();
   });
   // form
 
@@ -195,6 +219,40 @@ function populateDropdown(id, placeholderText, dropdownArray) {
       class: dropdownArray[i], // Add a unique class for each option
     });
     thisOne.append(option);
+  }
+}
+
+function editUser(recid, username, email) {
+  console.log('edit', recid, username, email)
+  $("#editrecid").val(recid);
+  $("#editname").val(username);
+  $("#editemail").val(email);
+  editdialog.dialog( "open" );
+}
+
+function updateUser(){
+  var formData = $("#editUser").serialize();
+  console.log('update user', formData)
+  $.post("updateprocess.php", formData, function (data, status) {
+    // Refresh the character list after adding
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+  editdialog.dialog( "close" );
+  loadUserList();
+}
+
+function deleteUser(userID) {
+  console.log('delete')
+  if (confirm("Are you sure you want to delete this character?")) {
+    $.post(
+      "deleteprocess.php",
+      { delete: true, id: userID },
+      function (data, status) {
+        // Refresh the character list after adding
+        alert("Data: " + data + "\nStatus: " + status);
+        loadUserList();
+      },
+    );
   }
 }
 
