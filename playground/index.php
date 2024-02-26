@@ -21,27 +21,27 @@ if (!isset($_SESSION['username'])) {
 <body>
 <script src="script.js?v=<?php echo time(); ?>"></script>
 
-<h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
-<ul>
-  <li><a href="../menu.php">Back to Main Menu</a></li>
-  <li><a href="../index.php">CRUD</a></li>
-</ul>
+<div class="sidebar">
+  <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
+  <a href="../index.php">Employee Form</a>
+  <a class="active" href="index.php">Existing Users</a>
+  <a href="logout.php">Logout</a>
+</div>
 
-<br>
-
+<div class="content">
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-1">Nunc tincidunt</a></li>
-    <li><a href="#tabs-2">Create Table</a></li>
+    <!--li><a href="#tabs-1">Nunc tincidunt</a></li-->
+    <li><a href="#tabs-2">Refresh Database Tables</a></li>
     <li><a href="#tabs-3">Check Existing Users</a></li>
   </ul>
-  <div id="tabs-1">
+  <!--div id="tabs-1">
     <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-  </div>
+  </div-->
   <div id="tabs-2">
     <ul>
-      <li> <a href="http://localhost/lmi3/userTable.php">User's Table</a> </li>
-      <li> <a href="http://localhost/lmi3/empfile.php">Employee's Table</a> </li>
+      <li> <a href="http://localhost/lmi-3/usersTable.php">User's Table</a> </li>
+      <li> <a href="http://localhost/lmi-3/empsfile.php">Employee's Table</a> </li>
     </ul>
   </div>
   <div id="tabs-3">
@@ -78,6 +78,6 @@ if (!isset($_SESSION['username'])) {
     </div>
   </div>
   
-  
+  </div>
   </html>
 </body>

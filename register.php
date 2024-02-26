@@ -24,7 +24,7 @@ $sql = "INSERT INTO user (username, email, password) VALUES ('$uname', '$uemail'
 
 if ($conn->query($sql) === TRUE) {
     $_SESSION['username'] = $uname;
-    echo "<script>window.location.href='menu.php';</script>";
+    echo "<script>window.location.href='index.php';</script>";
 } else {
     echo "'$uname', '$email', '$pword'";
     echo "Error: " . $sql . "<br>" . $conn->error;

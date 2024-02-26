@@ -100,6 +100,7 @@ $( function() {
 } );
 
 function loadUserList() {
+  console.log('table reloaded')
   $.get("usersfile.php", function (data) {
       $("#usersTable").html(data);
     });

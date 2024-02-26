@@ -58,7 +58,7 @@ $( function() {
         $.post("addNew.php", formData, function (data, status) {
           alert("Data: " + data + "\nStatus: " + status);
         })
-        window.location.href='menu.php';
+        window.location.href='index.php';
       }
       return valid;
     }

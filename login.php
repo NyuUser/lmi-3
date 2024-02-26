@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) == 1) {
     $_SESSION['username'] = $username;
     echo "Login successful. Redirecting...";
     // Redirect to menu page after successful login
-    echo "<script>window.location.href='menu.php';</script>";
+    echo "<script>window.location.href='index.php';</script>";
 } else {
     echo "Invalid username or password";
 }

@@ -153,6 +153,10 @@ function closePopup() {
   }
 
 $(document).ready(function () {
+  $( function() {
+    $( "#tabs" ).tabs();
+    // $("#tabs-3").load("../index.php");
+  } );
     loadEmpList();
     $("#birthdate").datepicker({
       changeMonth: true,

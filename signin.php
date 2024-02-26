@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Login</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="newUser.js?v=<?php echo time(); ?>"></script>
+    <script src="signin.js?v=<?php echo time(); ?>"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <br><br><br>
-    <form id="newUser">
+    <form id="oldUser">
         <fieldset>
-            <h2>Register</h2>
+            <h2>Login</h2>
         
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
@@ -22,7 +22,7 @@
 
             <p class="validateTips">All form fields are required.</p>
 
-            <a href="signin.php">
+            <a href="newUser.php">
                 <p>
                     Already have an account? Click here!
                 </p>
