@@ -99,6 +99,12 @@ $( function() {
 
 } );
 
+const sortOptions = [
+  "Record ID",
+  "Username",
+  "Email",
+]
+
 function loadUserList() {
   console.log('table reloaded')
   $.get("usersfile.php", function (data) {
@@ -108,11 +114,14 @@ function loadUserList() {
 
 function searchByName() {
   var searchName = $("#tags").val()
-  console.log("searchName", searchName)
+  console.log("searchName", searchName, tempHolder)
   $.ajax({
     type: "POST",
     url: "nameSearch.php",
-    data: { thisName: searchName },
+    data: { 
+      thisName: searchName, 
+      thisField: tempHolder 
+    },
     success: function (response) {
       $("#usersTable").html(response);
     },
@@ -123,13 +132,32 @@ function searchByName() {
   });
 }
 
+var tempHolder = ""
+function sortBySelection() {
+  x = $("#sortBy").val();
+  if (x === "Record ID") {
+    tempHolder = "recid";
+  } else if (x === "Username") {
+    tempHolder = "username";
+  } else if (x === "Email") {
+    tempHolder = "email";
+  } else {
+    x = "username";
+  }
+  console.log("auto complete sortBy", tempHolder);
+  updateAutocomplete();
+}
+
 function updateAutocomplete() {
     var availableTags = []
+    console.log('auto complete', tempHolder)
     
     $.ajax({
       type: "POST",
       url: "search_name_process.php",
-      data: {  },
+      data: { 
+        thisField: tempHolder 
+      },
       success: function (response) {
         console.log('reponse', response);
         var nameAutoArray = JSON.parse(response);
@@ -149,7 +177,32 @@ function updateAutocomplete() {
     });
 }
 
+function populateDropdown(id, placeholderText, dropdownArray) {
+  console.log(id, placeholderText, dropdownArray)
+  var thisOne = $(id);
+  thisOne.empty();
+  if (placeholderText != '') {
+    thisOne.append($("<option>").val("").text(placeholderText));
+  }
+  for (var i = 0; i < dropdownArray.length; i++) {
+    var option = $("<option>", {
+      value: dropdownArray[i],
+      text: dropdownArray[i],
+      class: dropdownArray[i], // Add a unique class for each option
+    });
+    thisOne.append(option);
+  }
+}
+
 $(document).ready(function () {
+  populateDropdown('#sortBy', 'Select Column Name to sort', sortOptions);
+
+  // sortBySelection();
+  
+  $("#sortBy").change(function () {
+    sortBySelection();
+  });
+  
   $( function() {
     $( "#tabs" ).tabs();
     // $("#tabs-3").load("../index.php");

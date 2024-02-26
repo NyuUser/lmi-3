@@ -31,7 +31,7 @@ WHERE recid NOT IN (
 $result1 = $conn->query($sql1);
 
 echo "<tr class=\"ui-widget-header\">
-    <th>Rec ID</th>
+    <th>Record ID</th>
     <th>Username</th>
     <th>Email</th>
     <th>Password</th>

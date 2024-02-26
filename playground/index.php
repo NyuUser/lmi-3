@@ -23,8 +23,8 @@ if (!isset($_SESSION['username'])) {
 
 <div class="sidebar">
   <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
-  <a href="../index.php">Employee Form</a>
-  <a class="active" href="index.php">Existing Users</a>
+  <a href="../index.php">Employees</a>
+  <a class="active" href="index.php">Admin</a>
   <a href="logout.php">Logout</a>
 </div>
 
@@ -48,6 +48,9 @@ if (!isset($_SESSION['username'])) {
     <div class="ui-widget">
       <label for="tags">Search by Name: </label>
       <input id="tags">
+      <label for="sortBy">Sort Ascending</label>
+      <select id="sortBy" name="sort">
+      </select><br>
       <input type="button" value="Submit" onclick="searchByName()">
     </div>
     

@@ -12,7 +12,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT username FROM user";
+// $fieldName = $_POST['thisField']
+
+$sql = "SELECT * FROM user";
 $nameAuto = []; // Initialize an empty array to store names
 
 $result = $conn->query($sql);

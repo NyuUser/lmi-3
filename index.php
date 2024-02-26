@@ -26,8 +26,8 @@ if (!isset($_SESSION['username'])) {
 <script src="script.js?v=<?php echo time(); ?>"></script>
 <div class="sidebar">
     <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
-    <a class="active" href="index.php">Employee Form</a>
-    <a href="playground/index.php">Existing Users</a>
+    <a class="active" href="index.php">Employees</a>
+    <a href="playground/index.php">Admin</a>
     <a href="logout.php">Logout</a>
 </div>
 

@@ -13,8 +13,9 @@ if ($conn->connect_error) {
 }
 
 $charName = $_POST['thisName'];
+$searchField = $_POST['thisField'];
 
-$sql = "SELECT * FROM user WHERE username = '$charName'";
+$sql = "SELECT * FROM user WHERE $searchField = '$charName'";
 
 $result = $conn->query($sql);
 
@@ -22,9 +23,11 @@ $result = $conn->query($sql);
 if ($result) {
     echo "<tr>
         <th>Results</th>
+        <th>SELECT * FROM user WHERE $searchField = '$charName'</th>
     </tr>";
 while ($row = $result->fetch_assoc()) {
     echo "<tr>
+            <td>{$row["recid"]}</td>
             <td>{$row["username"]}</td>
             <td>{$row["email"]}</td>
           </tr>";
