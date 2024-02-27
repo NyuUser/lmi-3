@@ -57,9 +57,11 @@ $( function() {
       console.log('form data', formData)
       $.post("oldUser.php", formData, function (data, status) {
         console.log(data, uname.val(), email.val(), password.val())
-        alert("Data: " + data + "\nStatus: " + status);
+        alert("Data: " + data);
+        if (status === "success") {
+          window.location.href='index.php';
+        }
       })
-      window.location.href='index.php';
     }
     return valid;
   }

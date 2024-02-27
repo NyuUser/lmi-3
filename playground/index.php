@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: login.html");
+    header("Location: signin.php");
     exit();
 }
 ?>
@@ -19,75 +19,72 @@ if (!isset($_SESSION['username'])) {
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
-<script src="script.js?v=<?php echo time(); ?>"></script>
+  <script src="script.js?v=<?php echo time(); ?>"></script>
 
-<div class="sidebar">
-  <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
-  <a href="../index.php">Employees</a>
-  <a class="active" href="index.php">Admin</a>
-  <a href="logout.php">Logout</a>
-</div>
-
-<div class="content">
-<div id="tabs">
-  <ul>
-    <!--li><a href="#tabs-1">Nunc tincidunt</a></li-->
-    <li><a href="#tabs-2">Refresh Database Tables</a></li>
-    <li><a href="#tabs-3">Check Existing Users</a></li>
-  </ul>
-  <!--div id="tabs-1">
-    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-  </div-->
-  <div id="tabs-2">
-    <ul>
-      <li> <a href="http://localhost/lmi-3/usersTable.php">User's Table</a> </li>
-      <li> <a href="http://localhost/lmi-3/empsfile.php">Employee's Table</a> </li>
-    </ul>
+  <div class="sidebar">
+    <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
+    <a href="../index.php">Employees</a>
+    <a class="active" href="index.php">Admin</a>
+    <a href="logout.php">Logout</a>
   </div>
-  <div id="tabs-3">
-    <div class="ui-widget">
-      <label for="tags">Search by Name: </label>
-      <input id="tags">
-      <!--label for="sortBy">Sort Ascending</label>
-      <select id="sortBy" name="sort">
-      </select><br-->
-      <input type="button" value="Submit" onclick="searchByName()">
+  
+  <div class="content">
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-2">Refresh Database Tables</a></li>
+      <li><a href="#tabs-3">Check Existing Users</a></li>
+    </ul>
+  
+    <div id="tabs-2">
+      <ul>
+        <li> <a href="http://localhost/lmi-3/usersTable.php">User's Table</a> </li>
+        <li> <a href="http://localhost/lmi-3/empsfile.php">Employee's Table</a> </li>
+      </ul>
     </div>
     
-    <div id="dialog-form" title="Create new user">
-      <p class="validateTips">All form fields are required.</p>
-      
-      <form id="addUser">
-        <fieldset>
-          <label for="name">Name</label>
-          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-          <label for="email">Email</label>
-          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">
-          
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-        </fieldset>
-      </form>
-    </div>
-    <div id="users-contain" class="ui-widget">
-      <h1>Existing Users:</h1>
-      <table id="usersTable" class="ui-widget ui-widget-content">
-        </table>
+    <div id="tabs-3">
+      <div class="ui-widget">
+        <label for="tags">Search by Name: </label>
+        <input id="tags">
+        <input type="button" value="Submit" onclick="searchByName()">
       </div>
-      <br>
-      <button id="create-user">Create new user</button>
-    </div>
-  </div>
+    
+      <div id="dialog-form" title="Create new user">
+        <p class="validateTips">All form fields are required.</p>
+      
+        <form id="addUser">
+          <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">
+            
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+          </fieldset>
+        </form>
+      </div>
 
-  <div id="edit-form" title="Update User">
+      <div id="users-contain" class="ui-widget">
+        <h1>Existing Users:</h1>
+        <table id="usersTable" class="ui-widget ui-widget-content">
+
+        </table>
+        <br/><br/>
+        <button id="create-user">Create new user</button>
+      </div>
+    </div>
+    
+    <div id="edit-form" title="Update User">
       <p class="validateTips">All form fields are required.</p>
       
       <form id="editUser">
         <fieldset>
-          <label for="editrecid">Record ID</label>
-          <input type="text" name="editrecid" id="editrecid" class="text ui-widget-content ui-corner-all">
+          <!--label for="editrecid">Record ID</label-->
+          <input hidden type="text" name="editrecid" id="editrecid" class="text ui-widget-content ui-corner-all">
           <label for="editname">Name</label>
           <input type="text" name="editname" id="editname" class="text ui-widget-content ui-corner-all">
           <label for="editemail">Email</label>
@@ -98,7 +95,8 @@ if (!isset($_SESSION['username'])) {
         </fieldset>
       </form>
     </div>
-  
+    
   </div>
   </html>
 </body>
+  

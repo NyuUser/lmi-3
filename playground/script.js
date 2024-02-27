@@ -132,8 +132,9 @@ const sortOptions = [
 function loadUserList() {
   console.log('table reloaded')
   $.get("usersfile.php", function (data) {
-      $("#usersTable").html(data);
-    });
+    $("#usersTable").html(data);
+    console.log(data)
+  });
 }
 
 function searchByName() {
@@ -228,6 +229,7 @@ function editUser(recid, username, email) {
   $("#editname").val(username);
   $("#editemail").val(email);
   editdialog.dialog( "open" );
+  loadUserList();
 }
 
 function updateUser(){
@@ -236,9 +238,9 @@ function updateUser(){
   $.post("updateprocess.php", formData, function (data, status) {
     // Refresh the character list after adding
     alert("Data: " + data + "\nStatus: " + status);
+    loadUserList();
   });
   editdialog.dialog( "close" );
-  loadUserList();
 }
 
 function deleteUser(userID) {
