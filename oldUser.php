@@ -12,11 +12,11 @@ if (!$conn) {
 }
 
 $username = $_POST['name'];
-$email = $_POST['email'];
+// $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM user WHERE username='$username' AND email='$email' AND password='$password'";
-// $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+// $sql = "SELECT * FROM user WHERE username='$username' AND email='$email' AND password='$password'";
+$sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) == 1) {
     echo "Success";
     // Redirect to menu page after successful login
 } else {
-    echo "Invalid username or password";
+    echo "$username $password Invalid username or password";
 }
 
 mysqli_close($conn);

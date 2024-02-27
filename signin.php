@@ -15,8 +15,8 @@
         
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+            <!--label for="email">Email</label>
+            <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all"-->
             <label for="password">Password</label>
             <input type="password" name="password" id="password" class="text ui-widget-content ui-corner-all">
 
@@ -24,7 +24,7 @@
 
             <a href="newUser.php">
                 <p>
-                    Already have an account? Click here!
+                    Not yet registered? Click here!
                 </p>
             </a>
             
