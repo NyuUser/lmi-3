@@ -24,7 +24,8 @@ if (mysqli_num_rows($result) == 1) {
     echo "Success";
     // Redirect to menu page after successful login
 } else {
-    echo "$username $password Invalid username or password";
+    // echo "$username $password Invalid username or password";
+    echo "Invalid username or password";
 }
 
 mysqli_close($conn);

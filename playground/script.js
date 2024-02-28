@@ -133,7 +133,7 @@ function loadUserList() {
   console.log('table reloaded')
   $.get("usersfile.php", function (data) {
     $("#usersTable").html(data);
-    console.log(data)
+    // console.log(data)
   });
 }
 
@@ -233,8 +233,11 @@ function editUser(recid, username, email) {
 }
 
 function updateUser(){
-  var formData = $("#editUser").serialize();
-  console.log('update user', formData)
+  // var formData = $("#editUser").serialize();
+  var formData = "editrecid=" + encodeURIComponent($("#editrecid").val()) + 
+  "&editname=" + encodeURIComponent($("#editname").val()) + 
+  "&editemail=" + encodeURIComponent($("#editemail").val());
+  console.log('update user uses encodeURIComponent', formData)
   $.post("updateprocess.php", formData, function (data, status) {
     // Refresh the character list after adding
     alert("Data: " + data + "\nStatus: " + status);

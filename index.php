@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://classless.de/classless.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <!--script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
@@ -89,71 +90,73 @@ if (!isset($_SESSION['username'])) {
             </form>
         </div>
         <div id="tabs-3">
-            <table id='empTable'>
-            
-            </table>
+        <input type="text" id="search_input" placeholder="Search...">
+        <table id='empTable'>
+
+        </table>
+
         </div>
     </div>
     <div class="popup" id="editPopup">
-                <h3>Edit a Employee Details</h3>
-                <form id="editForm">
-                    <fieldset>
-                        <input id="editrecid" type="text" name="recid" hidden>
-                        <br/>
-
-                        <label>Employee Full Name: </label>
-                        <input id="editfullname" type="text" name="fullname" required><br>
-                        
-                        <label>Address: </label>
-                        <input id="editaddress" type="text" name="address" required><br>
-                        
-                        <label>Birth Date: </label>
-                        <input id="editbirthdate" type="date" name="birthdate" required><br>
-                        
-                        <label>Age: </label>
-                        <input id="editage" type="number" name="age" onkeydown="return event.keyCode !== 69" required><br>
-                        
-                        <label>Gender: </label>
-                        <br/>
-                        <div class="radio-group" id="editgender">
-                            <input type="radio" id="male" name="gender" value="Male" required>
-                            <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="Female">
-                            <label for="female">Female</label>
-                            <input type="radio" id="other" name="gender" value="Other">
-                            <label for="other">Other</label>
-                        </div>
-                        <br/><br/>
-                        
-                        <label>Civil Status: </label><br>
-                        <div class="radio-group" id="editcivilstat">
-                            <input type="radio" id="single" name="civilstat" value="Single" required>
-                            <label for="single">Single</label>
-                            <input type="radio" id="married" name="civilstat" value="Married">
-                            <label for="married">Married</label>
-                            <br/><br/>
-                            <input type="radio" id="separated" name="civilstat" value="Separated">
-                            <label for="separated">Separated</label>
-                            <input type="radio" id="widowed" name="civilstat" value="Widowed">
-                            <label for="widowed">Widowed</label>
-                        </div>
-                        <br/><br/>
-                    
-                        <label>Contact Number: </label><input id="editcontactnum" type="tel" name="contactnum" pattern="[0-9]{10,}" title="Please enter a valid 10-digit phone number" required><br>
-                    
-                        <label>Salary: </label><input id="editsalary" type="number" name="salary" min="0" step="0.01" required><br>
-                    
-                        <label>
-                            Is Active: <input type="checkbox" name="isactive" id="editisactive" value="1"> 
-                        </label>
-                    
-                        <br/><br/>
-
-                        <input class="form-button" name="update" value="Update" onclick="updateEmp()">
-                        <button type="button" onclick="closePopup()">Cancel</button>
-                    </fieldset>
-                </form>
-            </div>
+        <h3>Edit a Employee Details</h3>
+        <form id="editForm">
+            <fieldset>
+                <input id="editrecid" type="text" name="recid" hidden>
+                <br/>
+                
+                <label>Employee Full Name: </label>
+                <input id="editfullname" type="text" name="fullname" required><br>
+                
+                <label>Address: </label>
+                <input id="editaddress" type="text" name="address" required><br>
+                
+                <label>Birth Date: </label>
+                <input id="editbirthdate" type="date" name="birthdate" required><br>
+                
+                <label>Age: </label>
+                <input id="editage" type="number" name="age" onkeydown="return event.keyCode !== 69" required><br>
+                
+                <label>Gender: </label>
+                <br/>
+                <div class="radio-group" id="editgender">
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="Other">
+                    <label for="other">Other</label>
+                </div>
+                <br/><br/>
+                
+                <label>Civil Status: </label><br>
+                <div class="radio-group" id="editcivilstat">
+                    <input type="radio" id="single" name="civilstat" value="Single" required>
+                    <label for="single">Single</label>
+                    <input type="radio" id="married" name="civilstat" value="Married">
+                    <label for="married">Married</label>
+                    <br/><br/>
+                    <input type="radio" id="separated" name="civilstat" value="Separated">
+                    <label for="separated">Separated</label>
+                    <input type="radio" id="widowed" name="civilstat" value="Widowed">
+                    <label for="widowed">Widowed</label>
+                </div>
+                <br/><br/>
+                
+                <label>Contact Number: </label><input id="editcontactnum" type="tel" name="contactnum" pattern="[0-9]{10,}" title="Please enter a valid 10-digit phone number" required><br>
+                
+                <label>Salary: </label><input id="editsalary" type="number" name="salary" min="0" step="0.01" required><br>
+                
+                <label>
+                    Is Active: <input type="checkbox" name="isactive" id="editisactive" value="1"> 
+                </label>
+                
+                <br/><br/>
+                
+                <input class="form-button" name="update" value="Update" onclick="updateEmp()">
+                <button type="button" onclick="closePopup()">Cancel</button>
+            </fieldset>
+        </form>
+    </div>
 </div>
 </body>
 

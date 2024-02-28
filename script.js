@@ -82,6 +82,8 @@ function validateForm() {
 function loadEmpList() {
   $.get("emp.php", function (data) {
     $("#empTable").html(data);
+    //user_table
+    // $("#user_table").html(data);
   });
 }
 
@@ -157,6 +159,41 @@ $(document).ready(function () {
     $( "#tabs" ).tabs();
     // $("#tabs-3").load("../index.php");
   } );
+  $('#search_input').keyup(function(){
+    var query = $(this).val().toLowerCase();
+    console.log(query,'query')
+    // empTable
+    $('#empTable tr').each(function(){
+      var username = $(this).find('td:eq(1)').text().toLowerCase();
+      var address = $(this).find('td:eq(2)').text().toLowerCase();
+      console.log(username, 'username', address, 'address')
+      if (username.indexOf(query) === -1 && address.indexOf(query) === -1) {
+          console.log(username.indexOf(query), 'this is hidden')
+          console.log(address.indexOf(query), 'this is hidden')
+          $(this).hide();
+      } else {
+          console.log(username.indexOf(query), 'this is shown')
+          console.log(address.indexOf(query), 'this is shown')
+          $(this).show();
+      }
+  });
+    /*
+    $('#user_table tbody tr').each(function(){
+        var username = $(this).find('td:eq(1)').text().toLowerCase();
+        var address = $(this).find('td:eq(2)').text().toLowerCase();
+        console.log(username, 'username', address, 'address')
+        if (username.indexOf(query) === -1 && address.indexOf(query) === -1) {
+            console.log(username.indexOf(query), 'this is hidden')
+            console.log(address.indexOf(query), 'this is hidden')
+            $(this).hide();
+        } else {
+            console.log(username.indexOf(query), 'this is shown')
+            console.log(address.indexOf(query), 'this is shown')
+            $(this).show();
+        }
+    });
+    */
+});
     loadEmpList();
     $("#birthdate").datepicker({
       changeMonth: true,
