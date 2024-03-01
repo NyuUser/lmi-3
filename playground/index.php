@@ -32,18 +32,18 @@ if (!isset($_SESSION['username'])) {
 
   <div id="tabs">
     <ul>
-      <li><a href="#tabs-2">Refresh Database Tables</a></li>
-      <li><a href="#tabs-3">Check Existing Users</a></li>
+      <li><a href="#tabs-2">Check Existing Users</a></li>
+      <li><a href="#tabs-3">Refresh Database Tables</a></li>
     </ul>
   
-    <div id="tabs-2">
+    <div id="tabs-3">
       <ul>
         <li> <a href="http://localhost/lmi-3/usersTable.php">User's Table</a> </li>
         <li> <a href="http://localhost/lmi-3/empsfile.php">Employee's Table</a> </li>
       </ul>
     </div>
     
-    <div id="tabs-3">
+    <div id="tabs-2">
       <div class="ui-widget">
         <label for="tags">Search by Name: </label>
         <input id="tags">

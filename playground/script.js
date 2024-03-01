@@ -157,7 +157,7 @@ function searchByName() {
     },
   });
   } else {
-    alert('Field must not be empty');
+    loadUserList();
   }
 }
 

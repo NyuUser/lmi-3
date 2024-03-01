@@ -153,6 +153,37 @@ function deleteCharacter(recid) {
 function closePopup() {
     $("#editPopup").hide();
   }
+  
+function exportAsCSV() {
+  var tableData= [];
+
+  $("#empTable tr").each(function() {
+    var rowData = [];
+    $(this).find('td').each(function() {
+      rowData.push($(this).text());
+    });
+    tableData.push(rowData);
+  });
+
+  $.ajax({
+    type: 'POST',
+    url: 'expyCSV.php',
+    data: {
+      tabledata: JSON.stringify(tableData)
+    },
+    success: function(data, status) {
+      if (data.trim() === 'success') {
+        alert('CSV Export Successful!');
+      } else {
+        console.log(data.trim(), 'success')
+        alert('CSV Export Failed! Please try again later.');
+      }
+    },
+    error: function(xhr, status, error) {
+      alert('CSV Export Failed!: '+ error);
+    }
+  });
+}
 
 $(document).ready(function () {
   $( function() {

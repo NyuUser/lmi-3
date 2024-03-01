@@ -15,14 +15,16 @@ if ($conn->connect_error) {
 $charName = $_POST['thisName'];
 // $searchField = $_POST['thisField'];
 
-$sql = "SELECT * FROM user WHERE username = '$charName'";
+$sql = "SELECT * FROM user WHERE username LIKE '%$charName%'";
 
 $result = $conn->query($sql);
 
 // Check if the query was successful
 if ($result) {
     echo "<tr>
-        <th>Results</th>
+        <th>Record ID</th>
+        <th>Username</th>
+        <th>Email</th>
     </tr>";
 while ($row = $result->fetch_assoc()) {
     echo "<tr>

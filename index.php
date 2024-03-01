@@ -24,6 +24,7 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 <script src="script.js?v=<?php echo time(); ?>"></script>
+<!---->
 <div class="sidebar">
     <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
     <a class="active" href="index.php">Employees</a>
@@ -93,7 +94,8 @@ if (!isset($_SESSION['username'])) {
         <table id='empTable'>
 
         </table>
-
+        <input type="button" class="CSVexpy" value="Export as CSV" onclick="exportAsCSV()">
+        <input type="button" value="Export as PDF" onclick="exportAsPDF()">
         </div>
     </div>
     <div class="popup" id="editPopup">
