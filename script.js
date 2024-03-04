@@ -136,6 +136,7 @@ function updateEmp() {
 }
 
 function deleteCharacter(recid) {
+  // alertify js library
     if (confirm("Are you sure you want to delete this character?")) {
       $.post(
         "empprocess.php",
@@ -178,6 +179,7 @@ function exportTableToCSV(tableID, filename = '') {
         }
       }
     });
+    console.log(rowData)
     // combine cell data for the row into CSV format and push it into the CSV array
     csv.push(rowData.join(','));
   });

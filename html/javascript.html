@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event and Function Sample</title>
+<style>
+    #box {
+        width: 300px;
+        height: 300px;
+        background-color: lightblue;
+        margin: 50px auto;
+        text-align: center;
+        line-height: 300px;
+        cursor: pointer;
+        border: 2px solid black;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        padding: 20px;
+        text-transform: uppercase;
+        overflow: hidden;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url('R.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #333; /* Default text color */
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+</head>
+<body>
+
+<div id="box" onclick="onClickEvent()" onmouseover="onMouseOverEvent()" onmouseout="onMouseOutEvent()">Click me!</div>
+
+<script>
+function onClickEvent() {
+    alert("Alert!");
+    let text = "Press a button!\nEither OK or Cancel.";
+    if (confirm(text) == true) {
+        innerHTMLExample('You pressed OK!')
+    } else {
+        innerHTMLExample('You canceled!')
+    }
+}
+
+function onKeyPressEvent() {
+    console.log("Key pressed!");
+    innerHTMLExample('Key Pressed')
+}
+
+function onKeyDownEvent() {
+    console.log("Key down!");
+    innerHTMLExample('Key Down')
+}
+
+function onBlurEvent() {
+    console.log("Blur event occurred!");
+    innerHTMLExample('onBlur')
+}
+
+function onMouseOverEvent() {
+    console.log("Mouse over event occurred!");
+    innerHTMLExample('mouse over')
+}
+
+function onMouseOutEvent() {
+    console.log("Mouse out event occurred!");
+    innerHTMLExample('mouse out')
+}
+
+function submitForm() {
+    document.getElementById("myForm").submit();
+}
+
+function encodeURIComponentExample() {
+    a = $("#fieldOne").val()
+    b = $("#fieldTwo").val()
+    var url = encodeURIComponent(a + b);
+    console.log(url);
+    innerHTMLExample(url)
+}
+
+function evalExample() {
+    var x = 10;
+    var y = 20;
+    var result = eval("x + y");
+    console.log(result);
+    innerHTMLExample(result)
+}
+
+function parseFunctions() {
+    var numString = "10";
+    console.log(parseInt(numString)); // Output: 10
+    console.log(parseFloat(numString)); // Output: 10.0
+    x = parseInt(numString)
+    y = parseFloat(numString)
+    innerHTMLExample("int " + x + " float " + y)
+}
+
+function stringManipulation() {
+    var myString = "Hello World";
+    console.log(myString.substr(1, 4)); // Output: ello
+    console.log(myString.toLowerCase()); // Output: hello world
+    console.log(myString.toUpperCase()); // Output: HELLO WORLD
+    a = myString.substr(1, 4);
+    b = myString.toLowerCase();
+    c = myString.toUpperCase();
+    text = "<p>" + a + " || " + b + " || " + c + "</p>=";
+    innerHTMLExample(text)
+}
+
+function mathFunction() {
+    var num = 3.6;
+    console.log(Math.round(num)); // Output: 4
+    z = Math.round(num)
+    innerHTMLExample(z)
+}
+
+function innerHTMLExample(text) {
+    var element = document.getElementById("box");
+    element.innerHTML = text;
+}
+</script>
+
+<form id="myForm" name="myForm" action="two_fields.php" method="post">
+    <input type="text" name="fieldOne" id="fieldOne" onkeydown="onKeyDownEvent()" onblur="onBlurEvent()" required>
+    <input type="text" name="fieldTwo" id="fieldTwo" onkeypress="onKeyPressEvent()" onblur="onBlurEvent()">
+    
+    <input type="button" value="Submit Form" onclick="submitForm()">
+</form>
+
+<button onclick="encodeURIComponentExample()">encodeURIComponent()</button>
+<button onclick="evalExample()">eval()</button>
+<button onclick="parseFunctions()">parseInt() and parseFloat()</button>
+<button onclick="stringManipulation()">String Methods</button>
+<button onclick="mathFunction()">Math.round()</button>
+
+</body>
+</html>

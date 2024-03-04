@@ -91,7 +91,7 @@ if (!isset($_SESSION['username'])) {
         </div>
         <div id="tabs-3">
         <input type="text" id="search_input" placeholder="Search...">
-        <table id='empTable'>
+        <table border="1" id='empTable'>
 
         </table>
 
@@ -156,7 +156,7 @@ if (!isset($_SESSION['username'])) {
                 <br/><br/>
                 
                 <input class="form-button" name="update" value="Update" onclick="updateEmp()">
-                <button type="button" onclick="closePopup()">Cancel</button>
+                <input class="form-button" onclick="closePopup()" value="Cancel">
             </fieldset>
         </form>
     </div>
