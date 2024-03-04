@@ -74,7 +74,9 @@ if (!isset($_SESSION['username'])) {
 
         </table>
         <br/><br/>
-        <button id="create-user">Create new user</button>
+        <input type="button" class="form-button" id="create-user" value="Create new user">
+        <br><br>
+        <input type="button" class="form-button" value="Export as CSV" onclick="exportTableToCSV('usersTable')">
       </div>
     </div>
     

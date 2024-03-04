@@ -94,8 +94,10 @@ if (!isset($_SESSION['username'])) {
         <table id='empTable'>
 
         </table>
-        <input type="button" class="CSVexpy" value="Export as CSV" onclick="exportAsCSV()">
-        <input type="button" value="Export as PDF" onclick="exportAsPDF()">
+
+        <br>
+        
+        <input type="button" class="form-button" value="Export as CSV" onclick="exportTableToCSV('empTable')">
         </div>
     </div>
     <div class="popup" id="editPopup">

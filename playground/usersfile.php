@@ -46,7 +46,7 @@ echo "<tr class=\"ui-widget-header\">
         <td>{$row["recid"]}</td>
         <td>{$row["username"]}</td>
         <td>{$row["email"]}</td>
-        <td>
+        <td class='action-buttons'>
         <button onclick=\"editUser({$row['recid']}, '{$row['username']}', '{$row['email']}')\">Edit</button>
         <button onclick=\"deleteUser({$row['recid']})\">Delete</button>
         </td>

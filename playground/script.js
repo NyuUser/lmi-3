@@ -223,6 +223,58 @@ function populateDropdown(id, placeholderText, dropdownArray) {
   }
 }
 
+// function to export HTML table to CSV file
+function exportTableToCSV(tableID, filename = '') {
+  var csv = []; // array to store CSV data
+  var rows = document.querySelectorAll('#' + tableID + ' tr'); // select all rows of the table
+  console.log('#' + tableID + ' tr')
+
+  // loop through each row
+  rows.forEach(function (row) {
+    console.log('row', row)
+    var rowData = []; // array to store data of each row
+    var cells = row.querySelectorAll('th, td'); // select all cells in the row
+    
+    // loop through each cell
+    cells.forEach(function (cell) {
+      console.log('230', cell.textContent)
+      const action = cell.textContent
+      if (action == "Action") {
+        console.log('remove')
+      } else {
+        if (!cell.classList.contains('action-buttons')) { // Check if cell does not have 'action-buttons' class
+          rowData.push('"' + cell.textContent.replace(/"/g, '""') + '"');
+        }
+      }
+    });
+    // combine cell data for the row into CSV format and push it into the CSV array
+    csv.push(rowData.join(','));
+  });
+
+  // Combine rows into CSV format
+  var csvContent = csv.join('\n');
+
+  // Create a blob object with UTF-8 encoding
+  var blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
+
+  // Create a download link
+  var downloadLink = document.createElement('a');
+  downloadLink.href = window.URL.createObjectURL(blob);
+
+  // Specify file name
+  filename = filename ? filename + '.csv' : 'excel_data.csv';
+  downloadLink.download = filename;
+
+  // Append the link to the body
+  document.body.appendChild(downloadLink);
+
+  // Trigger the download
+  downloadLink.click();
+
+  // Cleanup: remove download link from the body
+  document.body.removeChild(downloadLink);
+}
+
 function editUser(recid, username, email) {
   console.log('edit', recid, username, email)
   $("#editrecid").val(recid);

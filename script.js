@@ -153,37 +153,59 @@ function deleteCharacter(recid) {
 function closePopup() {
     $("#editPopup").hide();
   }
-  
-function exportAsCSV() {
-  var tableData= [];
 
-  $("#empTable tr").each(function() {
-    var rowData = [];
-    $(this).find('td').each(function() {
-      rowData.push($(this).text());
-    });
-    tableData.push(rowData);
-  });
+// function to export HTML table to CSV file
+function exportTableToCSV(tableID, filename = '') {
+  var csv = []; // array to store CSV data
+  var rows = document.querySelectorAll('#' + tableID + ' tr'); // select all rows of the table
+  console.log('#' + tableID + ' tr')
 
-  $.ajax({
-    type: 'POST',
-    url: 'expyCSV.php',
-    data: {
-      tabledata: JSON.stringify(tableData)
-    },
-    success: function(data, status) {
-      if (data.trim() === 'success') {
-        alert('CSV Export Successful!');
+  // loop through each row
+  rows.forEach(function (row) {
+    console.log('row', row)
+    var rowData = []; // array to store data of each row
+    var cells = row.querySelectorAll('th, td'); // select all cells in the row
+    
+    // loop through each cell
+    cells.forEach(function (cell) {
+      console.log('230', cell.textContent)
+      const action = cell.textContent
+      if (action == "Action") {
+        console.log('remove')
       } else {
-        console.log(data.trim(), 'success')
-        alert('CSV Export Failed! Please try again later.');
+        if (!cell.classList.contains('action-buttons')) { // Check if cell does not have 'action-buttons' class
+          rowData.push('"' + cell.textContent.replace(/"/g, '""') + '"');
+        }
       }
-    },
-    error: function(xhr, status, error) {
-      alert('CSV Export Failed!: '+ error);
-    }
+    });
+    // combine cell data for the row into CSV format and push it into the CSV array
+    csv.push(rowData.join(','));
   });
+
+  // Combine rows into CSV format
+  var csvContent = csv.join('\n');
+
+  // Create a blob object with UTF-8 encoding
+  var blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), csvContent], { type: 'text/csv;charset=utf-8;' });
+
+  // Create a download link
+  var downloadLink = document.createElement('a');
+  downloadLink.href = window.URL.createObjectURL(blob);
+
+  // Specify file name
+  filename = filename ? filename + '.csv' : 'excel_data.csv';
+  downloadLink.download = filename;
+
+  // Append the link to the body
+  document.body.appendChild(downloadLink);
+
+  // Trigger the download
+  downloadLink.click();
+
+  // Cleanup: remove download link from the body
+  document.body.removeChild(downloadLink);
 }
+
 
 $(document).ready(function () {
   $( function() {
