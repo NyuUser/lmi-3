@@ -65,6 +65,9 @@
         }
     </style>
 
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
@@ -86,7 +89,7 @@
                 <option value="HR">HR</option>
                 <option value="Finance">Finance</option>
                 <option value="IT">IT</option>
-                <!-- Add more options as needed -->
+                <!-- js library select2 -->
             </select><br><br>
             
             <input type="submit" value="Submit">
@@ -226,6 +229,10 @@
         }
 
         fetchTable();
+
+        $(document).ready(function (){
+            $("#department").select2()
+        })
     </script>
 </body>
 </html>

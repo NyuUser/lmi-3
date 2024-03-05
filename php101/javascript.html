@@ -12,6 +12,7 @@
         margin: 50px auto;
         text-align: center;
         line-height: 300px;
+        text-indent: 1px;
         cursor: pointer;
         border: 2px solid black;
         font-family: Arial, sans-serif;
@@ -67,9 +68,9 @@ function onClickEvent() {
     }
 }
 
-function onKeyPressEvent() {
-    console.log("Key pressed!");
-    innerHTMLExample('Key Pressed')
+function onKeyPressEvent(sender) {
+    console.log("Key pressed!", sender);
+    innerHTMLExample($(sender).val())
 }
 
 function onKeyDownEvent() {
@@ -113,7 +114,7 @@ function evalExample() {
 }
 
 function parseFunctions() {
-    var numString = "10";
+    var numString = "10.111";
     console.log(parseInt(numString)); // Output: 10
     console.log(parseFloat(numString)); // Output: 10.0
     x = parseInt(numString)
@@ -124,7 +125,7 @@ function parseFunctions() {
 function stringManipulation() {
     var myString = "Hello World";
     console.log(myString.substr(1, 4)); // Output: ello
-    console.log(myString.toLowerCase()); // Output: hello world
+    console.log(myString.toLowerCase()); // Output: hello world === 
     console.log(myString.toUpperCase()); // Output: HELLO WORLD
     a = myString.substr(1, 4);
     b = myString.toLowerCase();
@@ -135,8 +136,8 @@ function stringManipulation() {
 
 function mathFunction() {
     var num = 3.6;
-    console.log(Math.round(num)); // Output: 4
-    z = Math.round(num)
+    console.log(Math.round(num)); // Output: 4 
+    z = Math.round(num) // "buggy" 0.01 
     innerHTMLExample(z)
 }
 
@@ -148,7 +149,7 @@ function innerHTMLExample(text) {
 
 <form id="myForm" name="myForm" action="two_fields.php" method="post">
     <input type="text" name="fieldOne" id="fieldOne" onkeydown="onKeyDownEvent()" onblur="onBlurEvent()" required>
-    <input type="text" name="fieldTwo" id="fieldTwo" onkeypress="onKeyPressEvent()" onblur="onBlurEvent()">
+    <input type="text" name="fieldTwo" id="fieldTwo" onkeypress="onKeyPressEvent(this)" onblur="onBlurEvent()">
     
     <input type="button" value="Submit Form" onclick="submitForm()">
 </form>
