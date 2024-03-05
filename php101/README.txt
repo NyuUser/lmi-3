@@ -8,4 +8,4 @@ new_emp --> http://localhost/lmi-3/php101/import_new_emp_dump.php
 
 before importing 
  - create database name new_emp
- - check file path to new_emp.sql
+ - check file path to new_emp.sql and employeedb.sql and change if necessary
