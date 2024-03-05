@@ -34,7 +34,7 @@ CREATE TABLE `employeefile` (
   `salary` decimal(10,2) NOT NULL,
   `isactive` int(11) NOT NULL,
   PRIMARY KEY (`recid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `employeefile` (
 
 LOCK TABLES `employeefile` WRITE;
 /*!40000 ALTER TABLE `employeefile` DISABLE KEYS */;
-INSERT INTO `employeefile` VALUES (2,'Robert Vien Santiago','Sapang Palay Bulacan','1999-10-25',24,'Male','Single','09206423902',12345.67,1);
+INSERT INTO `employeefile` VALUES (1,'Robert Vien L Santiago','Sapang Palay Bulacan','1999-10-25',24,'Male','Single','09206423902',12345.67,1),(2,'Gregory','Karlmouth','1994-02-09',29,'Male','Single','09403541681',86399.00,1),(3,'Molly','Eltonberg','2001-12-26',22,'Male','Single','09919922042',112398.00,1),(4,'Destin','Stehrberg','1998-09-23',25,'Female','Single','09789389245',239515.00,0);
 /*!40000 ALTER TABLE `employeefile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-05 14:09:43
+-- Dump completed on 2024-03-05 14:58:37
